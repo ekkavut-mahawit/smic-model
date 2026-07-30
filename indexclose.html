@@ -1,25 +1,102 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<title>ปิดระบบ</title>
-<style>
-body{
-    font-family: Arial;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    background:#f5f5f5;
-    text-align:center;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ปิดระบบบันทึกผล - โรงเรียนมหาชนะชัยวิทยาคม</title>
+    <style>
+        /* ========================================================
+           ⚙️ จุดปรับแก้ขนาดตัวอักษรและสี (Edit Font Sizes & Colors Here)
+           ======================================================== */
+        :root {
+            /* 🎨 โทนสี (Colors) */
+            --bg-color: #0f111a;          /* สีพื้นหลังหน้าเว็บ */
+            --card-bg: #1a1d29;           /* สีพื้นหลังกล่องข้อความ */
+            --card-border: #33384f;       /* สีเส้นขอบกล่อง */
+            --accent-color: #ff5252;      /* สีเน้นแถบขอบบน / พาดหัว (สีแดง) */
+            --text-main: #ffffff;         /* สีตัวอักษรหลัก */
+            --text-sub: #a0aec0;          /* สีตัวอักษรรอง/คำอธิบาย */
+            --text-highlight: #2ecc71;    /* สีเน้นข้อความสำคัญ (สีเขียว) */
+            --footer-text: #718093;       /* สีตัวอักษรส่วนท้าย */
+
+            /* 📏 ขนาดตัวอักษร (Font Sizes) */
+            --icon-size: 64px;            /* ขนาดไอคอน 🚧 */
+            --title-size: 24px;           /* ขนาดหัวข้อใหญ่ (h1) */
+            --body-size: 16px;            /* ขนาดเนื้อหาทั่วไป (p) */
+            --footer-size: 13px;          /* ขนาดตัวหนังสือส่วนท้าย */
+        }
+
+        /* ========================================================
+           🛠️ สไตล์โครงสร้างหลัก (Styles)
+           ======================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .closed-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-top: 5px solid var(--accent-color);
+            border-radius: 16px;
+            padding: 40px 30px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+        .icon-box {
+            font-size: var(--icon-size);
+            margin-bottom: 16px;
+        }
+        h1 {
+            color: var(--accent-color);
+            font-size: var(--title-size);
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+        p {
+            color: var(--text-sub);
+            font-size: var(--body-size);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        .contact-highlight {
+            color: var(--text-highlight);
+            font-weight: bold;
+        }
+        .school-footer {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid var(--card-border);
+            font-size: var(--footer-size);
+            color: var(--footer-text);
+        }
+    </style>
 </head>
 <body>
-<div>
-    <h1>🚧 ไม่อยู่ในช่วงบันทึกผล</h1>
-    <p>ขออภัยในความไม่สะดวก</p>
-    <p>กรุณาติดต่อ งานวัดผล ประเมินผล</p>
+
+<div class="closed-card">
+    <div class="icon-box">🚧</div>
+    <h1>ไม่อยู่ในช่วงบันทึกผล</h1>
+    <p>ระบบปิดรับส่งผลการทดสอบชั่วคราว เปิดระบบให้แก้ไขผลการดำเนินการ วันที่ 31 กรกฏาคม 2569 </p>
+   <p> ขออภัยในความไม่สะดวก</p>
+    <p>หากมีข้อสงสัย กรุณาติดต่อ <span class="contact-highlight">งานวัดผล ประเมินผล</span></p>
+    
+    <div class="school-footer">
+        โรงเรียนมหาชนะชัยวิทยาคม
+    </div>
 </div>
+
 </body>
 </html>
