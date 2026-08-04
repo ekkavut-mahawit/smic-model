@@ -66,45 +66,100 @@ body{
 }
 
 .btn{
-
     display:block;
     text-decoration:none;
     text-align:center;
-
     margin-top:18px;
-
     padding:15px;
-
     border-radius:12px;
-
     background:#2563eb;
-
     color:white;
-
     font-size:20px;
-
     font-weight:bold;
-
     transition:.2s;
-
 }
 
 .btn:hover{
-
     background:#1d4ed8;
-
 }
 
 .footer{
-
     text-align:center;
-
     color:#666;
-
     margin:40px 0 20px;
-
     font-size:16px;
+}
 
+/* ==========================================
+   CSS ส่วนของ Popup 
+   ========================================== */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* พื้นหลังสีดำจางๆ */
+    backdrop-filter: blur(3px); /* เอฟเฟกต์เบลอฉากหลัง */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* แสดง Popup เมื่อมี class .active */
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-box {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 20px;
+    width: 85%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.popup-overlay.active .popup-box {
+    transform: scale(1);
+}
+
+.popup-box h2 {
+    margin-top: 0;
+    color: #2563eb;
+    font-size: 26px;
+}
+
+.popup-box p {
+    color: #4b5563;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 15px 0 25px;
+}
+
+.popup-close-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 100%;
+}
+
+.popup-close-btn:hover {
+    background: #1d4ed8;
 }
 
 </style>
@@ -112,6 +167,17 @@ body{
 </head>
 
 <body>
+
+<!-- ==========================================
+     HTML ส่วนของ Popup 
+     ========================================== -->
+<div class="popup-overlay" id="announcementPopup">
+    <div class="popup-box">
+        <h2>📢 ยินดีต้อนรับ / ประกาศ</h2>
+        <p>ยินดีต้อนรับเข้าสู่ระบบประกันคะแนน SMIC MODEL <br>กรุณาเลือกระดับชั้นเพื่อเข้าใช้งานระบบ</p>
+        <button class="popup-close-btn" onclick="closePopup()">เข้าสู่หน้าหลัก</button>
+    </div>
+</div>
 
 <div class="header">
 <img src="logo.png"
@@ -156,16 +222,14 @@ body{
 
 <div class="card">
 <h2 style="color:#2563eb;">🔵 ชั้นมัธยมศึกษาปีที่ 2</h2>
-<a class="btn" href="https://script.google.com/macros/s/AKfycbznWB0X4XzTm2KlRxA0dAl7-tdT-duFex77rm_WQeha2UONsXlM5kO0WnOUshKds1p8/exec
-" target="_top">
+<a class="btn" href="https://script.google.com/macros/s/AKfycbznWB0X4XzTm2KlRxA0dAl7-tdT-duFex77rm_WQeha2UONsXlM5kO0WnOUshKds1p8/exec" target="_top">
 เข้าใช้งาน ม.2
 </a>
 </div>
 
 <div class="card">
 <h2 style="color:#9333ea;">🟣 ชั้นมัธยมศึกษาปีที่ 3</h2>
-<a class="btn" href="https://script.google.com/macros/s/AKfycbw9mJ6ClBg8dmBXaD-fXaOiWHI6PRXQqJ7BASSnjEAgLjakF_6ri0BT1uq2n492tsZRPA/exec
-" target="_top">
+<a class="btn" href="https://script.google.com/macros/s/AKfycbw9mJ6ClBg8dmBXaD-fXaOiWHI6PRXQqJ7BASSnjEAgLjakF_6ri0BT1uq2n492tsZRPA/exec" target="_top">
 เข้าใช้งาน ม.3
 </a>
 </div>
@@ -198,6 +262,23 @@ body{
 Developed by งานวัดผล และประเมินผล กลุ่มบริหารงานวิชาการ มหาชนะชัยวิทยาคม
 
 </div>
+
+<!-- ==========================================
+     JAVASCRIPT ควบคุมการทำงาน Popup 
+     ========================================== -->
+<script>
+  // แสดง Popup เมื่อเปิดหน้าเว็บขึ้นมา
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.getElementById('announcementPopup').classList.add('active');
+    }, 300); // หน่วงเวลา 0.3 วินาทีเพื่อให้ Animation แสดงผลนุ่มนวล
+  });
+
+  // ฟังก์ชันสำหรับปิด Popup
+  function closePopup() {
+    document.getElementById('announcementPopup').classList.remove('active');
+  }
+</script>
 
 </body>
 </html>
