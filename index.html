@@ -267,16 +267,22 @@ Developed by งานวัดผล และประเมินผล ก�
      JAVASCRIPT ควบคุมการทำงาน Popup 
      ========================================== -->
 <script>
-  // แสดง Popup เมื่อเปิดหน้าเว็บขึ้นมา
   window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-      document.getElementById('announcementPopup').classList.add('active');
-    }, 300); // หน่วงเวลา 0.3 วินาทีเพื่อให้ Animation แสดงผลนุ่มนวล
+    // เช็กว่าเคยเปิดป๊อบอัพไปแล้วหรือยังในความทรงจำชั่วคราว (Session)
+    const hasSeenPopup = sessionStorage.getItem('hasSeenPopup');
+
+    // ถ้ายังไม่เคยเห็น ให้แสดงป๊อบอัพ
+    if (!hasSeenPopup) {
+      setTimeout(() => {
+        document.getElementById('announcementPopup').classList.add('active');
+      }, 300);
+    }
   });
 
-  // ฟังก์ชันสำหรับปิด Popup
   function closePopup() {
     document.getElementById('announcementPopup').classList.remove('active');
+    // บันทึกไว้ว่าผู้ใช้กดปิด/เห็นป๊อบอัพแล้ว
+    sessionStorage.setItem('hasSeenPopup', 'true');
   }
 </script>
 
